@@ -1,0 +1,4 @@
+Classi che gestiscono la persistenza e si occupano di effettuare operazioni sulle tabelle del database in base ai bean(model):
+
+ES: Brano implements Bean ---------------> Brano implements DAO --------------> Database
+							BranoDAO							  Util package

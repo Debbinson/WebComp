@@ -1,0 +1,4 @@
+Funzioni di utilità:
+	- Classe he gestisce la connessione con il database (JDBC)
+	- Classe (probabilmente statica, contenitore di metodi) che gestisce le frequenti chiamate a dispatcher e simili
+	- Classe (probabilmente statica, contenitore di metodi) che gestisce operazioni frequenti
