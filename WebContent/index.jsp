@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="it">
 
+
+
 <head>
 
 	<!-- Required meta tags -->
@@ -126,7 +128,7 @@
 									</c:forEach>
 								
 								</div>
-								<a href="#">
+								<a href="brano?whatsend=GetDettaglioBrano&idBrano=${brano.idBrano}">
 									<h4>${brano.titolo}</h4>
 								</a>
 								<h5>${brano.prezzo} €</h5>
@@ -138,7 +140,7 @@
 				</div>
 				<div class="col-lg-3">
 					<div class="left_sidebar_area">
-						<aside class="left_widgets cat_widgets">
+						<aside class="left_widgets p_filter_widgets">
 							<div class="l_w_title">
 								<h3>Categories</h3>
 							</div>

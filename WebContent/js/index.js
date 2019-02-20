@@ -60,6 +60,7 @@ $(document).ready(function() {
 	});
 });
 
+
 function updateCatalogoByArtist(idArtist){
 	$.ajax({
 		url: "index",
@@ -69,6 +70,7 @@ function updateCatalogoByArtist(idArtist){
 		success: function(result, status, xhr) {
 			console.log("Entered: ", status);
 			updateCatalogo(JSON.parse(xhr.responseText));
+			checked(idArtist);
 		},
 		error: function(error) {
 			console.log("Error: ", error);

@@ -52,6 +52,26 @@ Table of Content:
 
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+
+.container {
+  position: relative;
+}
+
+/* Bottom right text */
+#player{
+	color:transparent;
+	width: 515px;
+	
+}
+.audioBlock {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  background-color: transparent;
+  color: transparent;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 body {
   line-height: 24px;
   font-size: 14px;
@@ -89,6 +109,7 @@ button:focus {
 .list {
   list-style: none;
   margin: 0px;
+  cursor:pointer;
   padding: 0px; }
 
 a {
@@ -3211,7 +3232,8 @@ h6 {
 /* Single Product Area css
 ============================================================================================ */
 .product_image_area {
-  padding-top: 120px; }
+  padding-top: 120px;
+  margin-top:5%; }
 
 .s_product_img .carousel {
   position: relative; }
@@ -4352,7 +4374,7 @@ h6 {
     color: #1641ff; }
   .f_social_wd .f_social a:last-child {
     margin-right: 0px; }
-
+   
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
