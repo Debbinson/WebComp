@@ -1,4 +1,0 @@
-Classi che astraggono le tabelle del tabase e vengono sfruttate per il passaggio di informazioni fra servlet e vies e fra servlet e classi dao:
-	- Campi privati
-	- Costruttore vuoto
-	- GET e SET
