@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	
 	var categories = [];
@@ -32,18 +33,13 @@ $(document).ready(function() {
 		});
 	});
 	
-	var min = 0;
-	var max = 999;
-	var slider = document.getElementById('price-slider');
-	slider.noUiSlider.on('change', function (values, handle) {
-		if (handle) {
-			max = (values[handle]).slice(0, -1);
-		} else {
-			min = (values[handle]).slice(0, -1);;
-		}
-		console.log(min + " " + max); 
-		
-		
+	$("#price").keyup(function(){
+	
+		var min = 0;
+		var max=999;
+		var max = $("#price").val();
+		if (max=="")
+			max=999;
 		$.ajax({
 			url: "index",
 			type: "GET",

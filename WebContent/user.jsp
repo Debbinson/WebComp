@@ -1,16 +1,18 @@
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="it">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Fashiop</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${LOGINED_USER.username}-Rockstar</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
@@ -26,24 +28,21 @@
     <header class="header_area">
         <div class="top_menu row m0">
             <div class="container-fluid">
-                <div class="float-left">
-                    <p>Call Us: 012 44 5698 7456 896</p>
-                </div>
                 <div class="float-right">
                     <ul class="right_side">
                         <li>
-                            <a href="login.html">
-                                Login/Register
+                            <a href="index">
+                                Home
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                My Account
+                                Go to cart
                             </a>
                         </li>
                         <li>
-                            <a href="contact.html">
-                                Contact Us
+                            <a href="#">
+                                About Us
                             </a>
                         </li>
                     </ul>
@@ -54,7 +53,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html">
+                    <a class="navbar-brand logo_h" href="indexl">
                         <img src="img/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -65,118 +64,15 @@
                     </button>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <div class="row w-100">
-                            <div class="col-lg-7 pr-0">
-                                <ul class="nav navbar-nav center_nav pull-right">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home</a>
-                                    </li>
-                                    <li class="nav-item submenu dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="category.html">Shop Category</a>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="single-product.html">Product Details</a>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="checkout.html">Product Checkout</a>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="cart.html">Shopping Cart</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="confirmation.html">Confirmation</a>
-                                                        </li>
-                                        </ul>
-                                        </li>
-                                        <li class="nav-item submenu dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="blog.html">Blog</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="single-blog.html">Blog Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item submenu dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="login.html">Login</a>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="tracking.html">Tracking</a>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="elements.html">Elements</a>
-                                                        </li>
-                                            </ul>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="contact.html">Contact</a>
-                                            </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <ul class="nav navbar-nav navbar-right right_nav pull-right">
-                                    <hr>
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="icons">
-                                            <i class="lnr lnr lnr-cart"></i>
-                                        </a>
-                                    </li>
-
-                                    <hr>
-                                </ul>
-                            </div>
-                        </div>
+           
                     </div>
                 </div>
             </nav>
         </div>
     </header>
     <!--================Header Menu Area =================-->
-
-    <!--================Home Banner Area =================-->
-    <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-            <div class="container">
-                <div class="banner_content text-center">
-                    <h2>Blog Details</h2>
-                    <div class="page_link">
-                        <a href="index.html">Home</a>
-                        <a href="single-blog.html">Blog Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Home Banner Area =================-->
-
+			
+		
     <!--================Blog Area =================-->
     <section class="blog_area single-post-area p_120">
         <div class="container">
