@@ -37,7 +37,7 @@
 				<div class="float-right">
 					<ul class="right_side">
 						<li>
-							<a href="login.html">
+							<a href="login">
 								Login/Register
 							</a>
 						</li>

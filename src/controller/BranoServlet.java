@@ -60,6 +60,7 @@ public class BranoServlet extends HttpServlet {
 				BranoDAO dao = new BranoDAO();
 				Brano brano = dao.GetOneByCriteria(branoToFind);
 				AppUtils.storeData(request.getSession(), "BRANO", brano);
+				System.out.println("\n\n" + brano.getStelle() + "\n\n");
 
 				Categoria categoriaToFind = new Categoria();
 				categoriaToFind.setIdCategoria(brano.getBrano_categoria());

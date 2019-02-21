@@ -40,6 +40,7 @@ public class RatingServlet extends HttpServlet {
 				Brano brano = (Brano) request.getSession().getAttribute("BRANO");
 				Utente user = AppUtils.getLoginedUser(request.getSession());
 				
+				
 				boolean alreadycomment=false;
 				List<Bean> lista=dao.GetAll();
 				for(int i = 0; i < lista.size(); i++) {

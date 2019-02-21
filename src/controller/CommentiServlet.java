@@ -18,6 +18,7 @@ import model.Bean;
 import model.Brano;
 import model.Valutazione;
 import persistence.ValutazioneDAO;
+import util.AppUtils;
 
 public class CommentiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +39,7 @@ public class CommentiServlet extends HttpServlet {
 				}
 				//request.getSession().setAttribute("VALUTAZIONI",valutazioniBrano);
 				Gson gson = new Gson();
+				AppUtils.storeData(request.getSession(), "VALUTAZIONI", valutazioniBrano);
 				response.getWriter().write(gson.toJson(valutazioniBrano) + "\n");
 				//response.getWriter().write("200");
 				

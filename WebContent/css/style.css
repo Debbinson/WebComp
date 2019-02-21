@@ -53,6 +53,53 @@ Table of Content:
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 
+.form-group .input-rating .stars {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.form-group .input-rating .stars input[type="radio"] {
+  display: none;
+}
+
+.form-group .input-rating .stars>label {
+  float: right;
+  cursor: pointer;
+  padding: 0px 3px;
+  margin: 0px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.form-group .input-rating .stars>label:hover, .form-group .input-rating .stars>label:hover~label {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.form-group .input-rating .stars>label:before {
+  content: "\f006";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  color: #DADADA;
+  font-size: 14px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.form-group .input-rating .stars>label:hover:before, .form-group .input-rating .stars>label:hover~label:before {
+  content: "\f005";
+  color: #FFB656;
+}
+
+.form-group .input-rating .stars>input:checked label:before, .form-group .input-rating .stars>input:checked~label:before {
+  content: "\f005";
+  color: #FFB656;
+}
+
+
+
 .container {
   position: relative;
 }
@@ -2784,7 +2831,7 @@ h6 {
 
 .submit_btn {
   display: inline-block;
-  background: #1641ff;
+  background: transparent;
   padding: 0px 30px;
   color: #fff;
   font-family: "Roboto", sans-serif;
@@ -2800,7 +2847,7 @@ h6 {
   cursor: pointer;
   transition: all 300ms linear 0s; }
   .submit_btn:hover {
-    background: transparent;
+    background: #8080ff;
     color: #1641ff; }
 
 .white_bg_btn {
@@ -3275,7 +3322,7 @@ h6 {
   .s_product_text h2 {
     font-size: 24px;
     font-weight: bold;
-    color: #1641ff;
+    color: #535353;
     margin-bottom: 15px; }
   .s_product_text .list li {
     margin-bottom: 5px; }
@@ -3290,7 +3337,7 @@ h6 {
         .s_product_text .list li a span:hover {
           color: #555; }
       .s_product_text .list li a.active {
-        color: #1641ff; }
+        color: #525252; }
         .s_product_text .list li a.active span {
           color: #555; }
     .s_product_text .list li:last-child {
