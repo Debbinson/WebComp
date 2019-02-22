@@ -29,7 +29,7 @@ public class IndirizzoFatturazioneDAO implements DAO {
 			insertIndirizzo += "VALUES('" + indirizzo.getIndirizzo() + "', '" + indirizzo.getNome() + "', '"
 					+ indirizzo.getCognome() + "', '" + indirizzo.getEmail() + "', '" + indirizzo.getCitta() + "', '"
 					+ indirizzo.getCap() + "', '" + indirizzo.getTelefono() + "', '" + indirizzo.getNazione() + "', '"
-					+ indirizzo.getIndirizzoFatturazione_Utente() + "', SYSDATE())";
+					+ indirizzo.getindirizzoFatturazione_Utente() + "', SYSDATE())";
 			System.out.println("INSERT INDIRIZZO: " + insertIndirizzo);
 			int id = stmt.executeUpdate(insertIndirizzo, Statement.RETURN_GENERATED_KEYS);
 			indirizzo.setIdIndirizzo(id);

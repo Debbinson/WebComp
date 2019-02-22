@@ -15,7 +15,7 @@ public class IndirizzoFatturazione implements Bean, Serializable {
 	private String nazione;
 	private String cap;
 	private String telefono;
-	private int IndirizzoFatturazione_Utente;
+	private int indirizzoFatturazione_Utente;
 
 	public IndirizzoFatturazione() {
 	}
@@ -84,12 +84,12 @@ public class IndirizzoFatturazione implements Bean, Serializable {
 		this.telefono = telefono;
 	}
 
-	public int getIndirizzoFatturazione_Utente() {
-		return IndirizzoFatturazione_Utente;
+	public int getindirizzoFatturazione_Utente() {
+		return indirizzoFatturazione_Utente;
 	}
 
 	public void setIndirizzoFatturazione_Utente(int indirizzoFatturazione_Utente) {
-		IndirizzoFatturazione_Utente = indirizzoFatturazione_Utente;
+		this.indirizzoFatturazione_Utente = indirizzoFatturazione_Utente;
 	}
 
 	public String getIndirizzo() {
@@ -104,7 +104,7 @@ public class IndirizzoFatturazione implements Bean, Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + IndirizzoFatturazione_Utente;
+		result = prime * result + indirizzoFatturazione_Utente;
 		result = prime * result + ((cap == null) ? 0 : cap.hashCode());
 		result = prime * result + ((citta == null) ? 0 : citta.hashCode());
 		result = prime * result + ((cognome == null) ? 0 : cognome.hashCode());
@@ -125,7 +125,7 @@ public class IndirizzoFatturazione implements Bean, Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		IndirizzoFatturazione other = (IndirizzoFatturazione) obj;
-		if (IndirizzoFatturazione_Utente != other.IndirizzoFatturazione_Utente)
+		if (indirizzoFatturazione_Utente != other.indirizzoFatturazione_Utente)
 			return false;
 		if (cap == null) {
 			if (other.cap != null)

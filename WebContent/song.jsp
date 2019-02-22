@@ -154,10 +154,30 @@
 						</ul>
 						<p><c:out value="${BRANO.descrizione}"></c:out></p>
 						<div class="card_area">
-						<c:if test="${BRANO.prezzo <= 0}">
+						
+									<c:set var="download" value="${false}" />
+										<c:if test="${BRANO.prezzo==0}">
+											<c:set var="download" value="${true}" />
+										</c:if>
+										<c:forEach items="${UPLOADED_SONG}" var="uploaded">
+											<c:if test="${uploaded.idBrano==BRANO.idBrano}">
+												<c:set var="download" value="${true}" />
+											</c:if>
+										</c:forEach>
+										<c:forEach items="${PURCHASED_SONG}" var="purchased">
+											<c:if test="${purchased.idBrano==BRANO.idBrano}">
+												<c:set var="download" value="${true}" />
+											</c:if>
+										</c:forEach>
+						
+						
+						
+						
+						
+						<c:if test="${download== true}">
 							<a class="genric-btn danger-border circle" download>Download</a>
 						</c:if>
-						<c:if test="${BRANO.prezzo > 0}">
+						<c:if test="${download==false}">
 							<a class="genric-btn danger-border circle" onclick="addToCart(${BRANO.idBrano})">Add to Cart</a>
 						</c:if>
 										
@@ -208,7 +228,7 @@
 						<div class="col-lg-6">
 						
 							<div class="review_box">
-							<c:if test="${LOGINED_USER}">
+							<c:if test="${LOGINED_USER!=null}">
 											<h4>Add a Review</h4>
 											<div class="form-group">
 											<div class="input-rating">
@@ -233,7 +253,7 @@
 												</div>
 											</form>
 								</c:if>
-								<c:if test="${empty LOGINED_USER}">
+								<c:if test="${LOGINED_USER==null}">
 									<h4>Do you want to rate this song? Log in</h4>
 									<div class="col-md-12">
 										<a class="btn submit_btn" href="login">Log in</a>

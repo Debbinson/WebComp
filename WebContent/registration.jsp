@@ -82,7 +82,6 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner reg_form">
 						<h3>Create an Account</h3>
-						<h5>"${ERROR_MESSAGE}"</h5>
 						<form class="row login_form" action="registration" method="post">
 							<div class="col-md-12 form-group">
 								<input type="text" class="input" id="name" name="nome" placeholder="Name"required/>
