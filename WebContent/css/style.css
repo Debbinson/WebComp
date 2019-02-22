@@ -230,7 +230,7 @@ a {
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 .active {
-  color: #1641ff; }
+  color: #000000; }
 
 .header_area {
   position: absolute;
@@ -2833,7 +2833,7 @@ h6 {
   display: inline-block;
   background: transparent;
   padding: 0px 30px;
-  color: #fff;
+  color: blue;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -3315,24 +3315,24 @@ h6 {
   margin-left: -15px;
   margin-top: 65px; }
   .s_product_text h3 {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 500;
     color: #222222;
     margin-bottom: 10px; }
   .s_product_text h2 {
-    font-size: 24px;
+    font-size: 45px;
     font-weight: bold;
     color: #535353;
     margin-bottom: 15px; }
   .s_product_text .list li {
     margin-bottom: 5px; }
     .s_product_text .list li a {
-      font-size: 14px;
+      font-size: 30px;
       font-family: "Roboto", sans-serif;
       font-weight: normal;
       color: #555555; }
       .s_product_text .list li a span {
-        width: 90px;
+        width: 150px;
         display: inline-block; }
         .s_product_text .list li a span:hover {
           color: #555; }
@@ -3346,7 +3346,8 @@ h6 {
     padding-top: 20px;
     border-top: 1px dotted #d5d5d5;
     margin-top: 20px;
-    margin-bottom: 70px; }
+    margin-bottom: 70px;
+    font-size:25px; }
   .s_product_text .card_area .main_btn {
     line-height: 38px;
     padding: 0px 38px;
@@ -3525,7 +3526,8 @@ h6 {
           color: #fff; }
   .review_item p {
     padding-top: 10px;
-    margin-bottom: 0px; }
+    margin-bottom: 0px;
+    margin-left: 85px; }
   .review_item.reply {
     padding-left: 28px; }
 

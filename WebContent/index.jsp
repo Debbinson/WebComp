@@ -7,7 +7,6 @@
 
 
 <head>
-
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +26,6 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
 </head>
-
 <body>
 
 	<!--================Header Menu Area =================-->
@@ -55,6 +53,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">

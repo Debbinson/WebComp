@@ -22,6 +22,7 @@ $(document).ready(function() {
       	var commento= $("#message").val();
       	var rating = $("input[name='rating']:checked").val();
       	
+      	
       	var valutazione = {
       			rating : rating ,
       			commento : commento ,
@@ -35,12 +36,12 @@ $(document).ready(function() {
               dataType: 'json',
               data: {"valutazione": JSON.stringify(valutazione), "whatsend": "valuta"},
               success: function(status) {
-            	success_error("Success!", "Comment inserted");
+            	swal ( "Cool" ,  "Comment inserted!" ,  "success" );
               	console.log("Entered: ", status);
               	get_commenti();
               },
               error: function(error) {
-              	success_error("e", "Comment not inserted");
+            	swal ( "Oops" ,  "Comment not inserted!" ,  "error" );
               	console.log("Error: ", error);
               	
               }
@@ -91,11 +92,11 @@ $(document).ready(function() {
     }
     var star="";
     star+= "<h5>Overall</h5>";
-    star+= "<h4>"+ stella +"</h4>";
-    for(var i = 1;i < stella; i++){
+    star+= "<h4>"+ round(stella,1) +"</h4>";
+    for(var i = 0;i < float2int(stella); i++){
   	  star+="<i class='fa fa-star'></i>";
     }
-    for(var i = 0; i < 5-stella;i++){
+    for(var i = 0; i < 5-float2int(stella);i++){
   	  star+="<i class='fa fa-star-o empty'></i>";
     }
     
@@ -174,3 +175,11 @@ $(document).ready(function() {
    
     
  }
+function float2int (value) {
+    return value | 0;
+}
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}

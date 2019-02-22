@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -74,6 +75,7 @@
 
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
+								
 									<hr>
 									<li class="nav-item">
 										<a href="login" class="icons">
@@ -82,7 +84,7 @@
 									</li>
 
 									<hr>
-
+				
 									<li class="nav-item">
 										<a href="#" class="icons">
 											<i class="fa fa-user" aria-hidden="true"></i>
@@ -204,31 +206,42 @@
 							</div>
 						</div>
 						<div class="col-lg-6">
+						
 							<div class="review_box">
-								<h4>Add a Review</h4>
-								<div class="form-group">
-								<div class="input-rating">
-									<strong class="text-uppercase">Your Rating: </strong>
-									<div class="stars">
-										<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label> 
-										<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label> 
-										<input type="radio" id="star3" name="rating" value="3" checked="checked" /><label for="star3"></label> 
-										<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label> 
-										<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
-									</div>
-								</div>
-							</div>
-								<form class="row contact_form" id="contactForm">
-									<div class="col-md-12">
-										<div class="form-group">
-											<textarea class="form-control" name="message" id="message" rows="1" placeholder="Review"></textarea>
+							<c:if test="${LOGINED_USER}">
+											<h4>Add a Review</h4>
+											<div class="form-group">
+											<div class="input-rating">
+												<strong class="text-uppercase">Your Rating: </strong>
+												<div class="stars">
+													<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label> 
+													<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label> 
+													<input type="radio" id="star3" name="rating" value="3" checked="checked" /><label for="star3"></label> 
+													<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label> 
+													<input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+												</div>
+											</div>
 										</div>
-									</div>
+											<form class="row contact_form" id="contactForm">
+												<div class="col-md-12">
+													<div class="form-group">
+														<textarea class="form-control" id="message" placeholder="Review"></textarea>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<a class="btn submit_btn" id="add-comment">Submit Now</a>
+												</div>
+											</form>
+								</c:if>
+								<c:if test="${empty LOGINED_USER}">
+									<h4>Do you want to rate this song? Log in</h4>
 									<div class="col-md-12">
-										<a class="btn submit_btn" id="add-comment">Submit Now</a>
+										<a class="btn submit_btn" href="login">Log in</a>
+										<a href="registration">Not already registered? Tap here to become a rockstar</a>
 									</div>
-								</form>
+								</c:if>
 							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -329,22 +342,21 @@
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/stellar.js"></script>
 	<script src="vendors/lightbox/simpleLightbox.min.js"></script>
 	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
 	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
 	<script src="vendors/isotope/isotope-min.js"></script>
 	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/mail-script.js"></script>
 	<script src="vendors/jquery-ui/jquery-ui.js"></script>
 	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
 	<script src="vendors/counter-up/jquery.counterup.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 	<script src="js/theme.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/rating.js"></script>
+	
 </body>
 
 </html>

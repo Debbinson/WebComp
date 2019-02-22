@@ -39,7 +39,6 @@ public class CommentiServlet extends HttpServlet {
 				}
 				//request.getSession().setAttribute("VALUTAZIONI",valutazioniBrano);
 				Gson gson = new Gson();
-				AppUtils.storeData(request.getSession(), "VALUTAZIONI", valutazioniBrano);
 				response.getWriter().write(gson.toJson(valutazioniBrano) + "\n");
 				//response.getWriter().write("200");
 				
