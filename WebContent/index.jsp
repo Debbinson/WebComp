@@ -49,7 +49,7 @@
 							</c:if>
 						</li>
 						<li>
-							<a href="#">
+							<a href="checkout">
 								Go to cart
 							</a>
 						</li>
@@ -221,6 +221,8 @@
 	<script src="vendors/counter-up/jquery.counterup.js"></script>
 	<script src="js/theme.js"></script>
 	<script src="js/index.js"></script>
+	<script src="js/AddToCart.js"></script>
+	
 	
 </body>
 

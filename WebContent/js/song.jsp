@@ -156,7 +156,7 @@
 						<div class="card_area">
 						
 									<c:set var="download" value="${false}" />
-										<c:if test="${BRANO.prezzo<=0}">
+										<c:if test="${BRANO.prezzo==0}">
 											<c:set var="download" value="${true}" />
 										</c:if>
 										<c:forEach items="${UPLOADED_SONG}" var="uploaded">
@@ -175,7 +175,7 @@
 						
 						
 						<c:if test="${download== true}">
-							<a href="SONG/${BRANO.path}"class="genric-btn danger-border circle" download>Download</a>
+							<a class="genric-btn danger-border circle" download>Download</a>
 						</c:if>
 						<c:if test="${download==false}">
 							<a class="genric-btn danger-border circle" onclick="addToCart(${BRANO.idBrano})">Add to Cart</a>
@@ -377,6 +377,7 @@
 	<script src="js/index.js"></script>
 	<script src="js/rating.js"></script>
 	<script src="js/AddToCart.js"></script>
+	
 </body>
 
 </html>

@@ -70,7 +70,7 @@ public class CheckoutServlet extends HttpServlet {
 				ArrayList<Brano> result = dao.GetAllByCriteria((Bean) utente);
 
 				if (result.isEmpty()) {
-					AppUtils.Forward(request, response, this, "/index");
+					AppUtils.Forward(request, response, this, "/index.jsp");
 					return;
 				}
 
