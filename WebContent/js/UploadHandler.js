@@ -73,7 +73,7 @@ $(document).ready(function() {
 					headers = xhr.responseText; 
 				},
 				error: function(error) {
-					success_error("e", "Files not inserted! Have you inserted billing address ?");
+					swal ( "Oops, song not inserted." ,  "Have you forgot your billing address?!" ,  "error" );
 					console.log("Error", error);
 				}
 			});
@@ -89,12 +89,12 @@ $(document).ready(function() {
 				async: false,
 				data: {"file_to_upload_info": JSON.stringify(file_to_upload_info), "whatsend": "InsertFileToUpload"},
 				success: function(status) {
-					success_error("Success!","Song Inserted!");
+					swal ( "Cool" ,  "Song inserted!" ,  "success" );
 					console.log("Entered", status);
 					get_brani_utente();
 				},
 				error: function(error) {
-					success_error("e","Song not inserted! Have you inserted billing address ?");
+					swal ( "Oops, song not inserted." ,  "Have you forgot your billing address?!" ,  "error" );
 					console.log("Error", error);
 				}
 			});
@@ -124,7 +124,7 @@ function show_table() {
 				else selectors += "<option value='" + categories[j].idCategoria + "'>" + categories[j].nome + "</option>";
 			row += "<td><select class='form-control'>" + selectors + "</select></td>";
 			
-			row += "<td><textarea class='form-control' maxlength='256' placeholder='&quot;Description missing&quot; by default'></textarea></td>";
+			row += "<td><input class='form-control description' maxlength='45' placeholder='&quot;Description missing&quot;'></td>";
 			row += "<td><input class='form-control' type='number' min='0' max='999' placeholder='Free by default' step='any'></td>";
 			row += "</tr>";
 			
@@ -135,7 +135,7 @@ function show_table() {
 		}
 		
 		if (!ext_allowed(file_selector.files.item(i).name.split(".").pop())) {
-			success_error("e", "L'estensione ." + file_selector.files.item(i).name.split(".").pop() + " non è valida!")
+			swal("Oops!", "L'estensione ." + file_selector.files.item(i).name.split(".").pop() + " non è valida!","error");
 		}
 	}
 }

@@ -17,7 +17,7 @@ public class DBConnectorFactory {
 		DB_DRIVER = "com.mysql.cj.jdbc.Driver";
 		DB_CONNECTION = "jdbc:mysql://localhost:3306/commerce_and_music?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		DB_USER = "root";
-		DB_PASSWORD = "123456";
+		DB_PASSWORD = "Tavolaperiodica1.";
 	}
 
 	public static DBConnectorFactory getInstance() {

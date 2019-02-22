@@ -156,7 +156,7 @@
 						<div class="card_area">
 						
 									<c:set var="download" value="${false}" />
-										<c:if test="${BRANO.prezzo==0}">
+										<c:if test="${BRANO.prezzo<=0}">
 											<c:set var="download" value="${true}" />
 										</c:if>
 										<c:forEach items="${UPLOADED_SONG}" var="uploaded">

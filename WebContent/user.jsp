@@ -26,78 +26,143 @@
 
     <!--================Header Menu Area =================-->
     <header class="header_area">
-        <div class="top_menu row m0">
-            <div class="container-fluid">
-                <div class="float-right">
-                    <ul class="right_side">
-                        <li>
-                            <a href="index">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Go to cart
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                About Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
         <div class="main_menu">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-           
-                    </div>
-                </div>
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="index.html">
+						<img src="img/logo.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<div class="row w-100">
+							<div class="col-lg-7 pr-0">
+								<ul class="nav navbar-nav center_nav pull-right">
+									<li class="nav-item">
+										<a class="nav-link" href="index.html">Home</a>
+									</li>
+
+										<li class="nav-item submenu dropdown">
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social</a>
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="#">Facebook</a>
+													<li class="nav-item">
+														<a class="nav-link" href="#">Instagram</a>
+														<li class="nav-item">
+															<a class="nav-link" href="#">Twitter</a>
+														</li>
+											</ul>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">About us</a>
+											</li>
+								</ul>
+							</div>
+
+							<div class="col-lg-5">
+								<ul class="nav navbar-nav navbar-right right_nav pull-right">
+								
+									<hr>
+									<li class="nav-item">
+										<a href="login" class="icons">
+											<i class="fa fa-sign-out" aria-hidden="true"></i>
+										</a>
+									</li>
+									
+									<hr>
+
+									<li class="nav-item">
+										<a href="#" class="icons">
+											<i class="fa fa-shopping-cart"></i>
+										</a>
+									</li>
+
+									<hr>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
             </nav>
         </div>
     </header>
     <!--================Header Menu Area =================-->
 			
-		
-    
-    
-    <section class="blog_area single-post-area p_120">
-		<div class="container">
-			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<li class="nav-item">
-					<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Download</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Upload</a>
-				</li>
-			</ul>
+		<section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                
+                    <h2>Your Profile Page</h2>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>       	
+			<div class="blog_right_sidebar container">
+			<div class="col-lg-4 pull-right">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
+                            <div class="br"></div>
+                        </aside>
+                        <aside class="single_sidebar_widget author_widget">
+                            <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                            <h4>${LOGINED_USER.username}</h4>
+                            <p>User/Artist</p>
+                            <div class="social_icon">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-behance"></i>
+                                </a>
+                            </div>
+                            <p>Every registered user can download and upload songs, try to make your own song
+                            and post it here. With the help of our community you could become a real Rockstar!
+                            </p>
+                            <div class="br"></div>
+                        </aside>                            
+                   		 </div>
+                	</div>
+                	<div class="col-lg-8 posts-list">
+			<section class="product_description_area">			
+
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link show active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
+					</li>					<li class="nav-item">
+
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Download</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Upload</a>
+					</li>
+				</ul>
+			</section>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 					<div class="row">
 					<div class="col-md-3">
 					<div class="row">
-		                <aside class="single_sidebar_widget author_widget">
-							<img class="author_img rounded-circle" src="img/blog/author.png" alt="">
-							<h4>${LOGINED_USER.username}</h4>
-							<p>The new Rockstar</p>
-						</aside>	
+	
+					
+					
+		          
 		        	</div>
 		        	</div>
 		        	
@@ -124,7 +189,7 @@
 									placeholder="Email" value="${LOGINED_USER.email}" required>
 							</div>
 							<div class="form-group">
-								<a class="btn primary-btn" name="update-user">Modify BIO</a>
+								<a class="btn submit_btn" name="update-user">Modify BIO</a>
 							</div>
 						</div>
 					</div>
@@ -176,7 +241,7 @@
 									value="${INDIRIZZO_FATTURAZIONE.indirizzoFatturazione_Utente}">
 							</div>
 							<div class="form-group">
-								<a class="btn primary-btn" name="update-billing-address">Modify
+								<a class="btn submit_btn" name="update-billing-address">Modify
 									Billing Address</a>
 							</div>
 						</div>
@@ -201,12 +266,13 @@
 				</div>
 				</div>
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-					<div class="row">
+					<div class="row" id="upload_section">
 					<div class="col-md-3">
 						<div align="center">
 							<br>
+			
 							<h2>Your Upload</h2>
-							<table id="your-upload-table">
+							<table class= "blog_right_sidebar" id="your-upload-table">
 								<tr>
 									<th>Song</th>
 									<th>Date</th>
@@ -215,40 +281,41 @@
 							</table>
 						</div>
 					</div>
+					
 					<div class="col-md-9">
-						<div align="center">
-							<div align="center">
 								<br>
+								
 								<h2>Upload Now</h2>
 								<!--Form Upload-->
 								<div id="controls">
 									<form id="form-upload" class="form-inline" enctype="multipart/form-data">
 										<div class="form-group">
-											<label class="btn primary-btn" for="choose-btn">Choose file</label> 
+											<label class="btn submit_btn" for="choose-btn">Choose file</label> 
 											<input id="choose-btn" style="display: none" type="file" multiple onchange="show_table()" accept="audio/*">
-											<a class="btn primary-btn" id="upload-btn">Upload</a>
+											<a class="btn submit_btn" id="upload-btn">Upload</a>
 										</div>
 										<br><br>
-										<table id="upload-table">
-											<tr>
-												<th>File</th>
-												<th>Title</th>
-												<th>Genre</th>
-												<th>Description</th>
-												<th>Price</th>
-											</tr>
-										</table>
+										
 									</form>
-								</div>
-							</div>
 						</div>
 					</div>
+					<form id="form-upload" class="form-inline" enctype="multipart/form-data">
+					<table id="upload-table" class= "blog_right_sidebar upload_table_class">
+								<tr>
+									<th>File</th>
+									<th>Title</th>
+									<th>Genre</th>
+									<th>Description</th>
+									<th>Price</th>
+								</tr>
+					</table>
+					</form>
 				</div>
 				</div>
 				
 			</div>
 		</div>
-	</section>
+		</div>
 
     
 
@@ -273,6 +340,7 @@
 	<script src="js/UploadHandler.js"></script>
 	<script src="js/UpdateUser.js"></script>
 	<script src="js/UpdateQty.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
    
 </body>
 
