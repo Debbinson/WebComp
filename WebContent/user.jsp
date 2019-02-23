@@ -28,7 +28,7 @@
     <header class="header_area">
 
         <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="index.html">
@@ -69,29 +69,45 @@
 
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
-								
+									<c:if test="${LOGINED_USER==null}">
 									<hr>
 									<li class="nav-item">
 										<a href="login" class="icons">
+											<i class="fa fa-sign-in" aria-hidden="true"></i>
+										</a>
+									</li>
+									</c:if>
+									<c:if test="${LOGINED_USER!=null}">
+										<hr>
+										
+										<li class="nav-item">
+										<a href="logout" class="icons">
 											<i class="fa fa-sign-out" aria-hidden="true"></i>
+											
 										</a>
 									</li>
+										
+										<hr>
 									
-									<hr>
-
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-shopping-cart"></i>
-										</a>
-									</li>
-
+									
+										<hr>
+	
+										<li class="nav-item">
+											<div class="header-btns-icon">
+											<a href="checkout" class="icons">
+												<i class="fa fa-shopping-cart"></i>
+												 <span id="qtySpan" class="qty"></span>
+											</a>
+											</div>
+										</li>
+									</c:if>
 									<hr>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-            </nav>
+			</nav>
         </div>
     </header>
     <!--================Header Menu Area =================-->

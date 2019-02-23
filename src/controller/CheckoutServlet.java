@@ -69,10 +69,10 @@ public class CheckoutServlet extends HttpServlet {
 				CarrelloDAO dao = new CarrelloDAO();
 				ArrayList<Brano> result = dao.GetAllByCriteria((Bean) utente);
 
-				if (result.isEmpty()) {
+				/*if (result.isEmpty()) {
 					AppUtils.Forward(request, response, this, "/index.jsp");
 					return;
-				}
+				}*/
 
 				AppUtils.storeData(request.getSession(), "CARRELLO_UTENTE", result);
 				AppUtils.Forward(request, response, this, "/checkout.jsp");

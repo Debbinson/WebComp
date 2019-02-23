@@ -75,32 +75,44 @@
 
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
-								
+									<c:if test="${LOGINED_USER==null}">
 									<hr>
 									<li class="nav-item">
 										<a href="login" class="icons">
 											<i class="fa fa-sign-in" aria-hidden="true"></i>
 										</a>
 									</li>
-
-									<hr>
-				
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-user" aria-hidden="true"></i>
+									</c:if>
+									<c:if test="${LOGINED_USER!=null}">
+										<hr>
+										
+										<li class="nav-item">
+										<a href="logout" class="icons">
+											<i class="fa fa-sign-out" aria-hidden="true"></i>
+											
 										</a>
 									</li>
-
-									<hr>
+										
+										<li class="nav-item">
+											<a href="user" class="icons">
+												<i class="fa fa-user" aria-hidden="true"></i>
+											</a>
+										</li>
+	
+										<hr>
 									
-									<hr>
-
-									<li class="nav-item">
-										<a href="#" class="icons">
-											<i class="fa fa-shopping-cart"></i>
-										</a>
-									</li>
-
+									
+										<hr>
+	
+										<li class="nav-item">
+										<div class="header-btns-icon">
+											<a href="checkout" class="icons">
+												<i class="fa fa-shopping-cart"></i>
+												 <span id="qtySpan" class="qty"></span>
+											</a>
+											</div>
+										</li>
+									</c:if>
 									<hr>
 								</ul>
 							</div>
@@ -377,6 +389,7 @@
 	<script src="js/index.js"></script>
 	<script src="js/rating.js"></script>
 	<script src="js/AddToCart.js"></script>
+	<script src="js/UpdateQty.js"></script>
 </body>
 
 </html>

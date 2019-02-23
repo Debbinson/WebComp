@@ -13,6 +13,7 @@ function update_qnt_span() {
 			$("#qtySpan").html((xhr.responseText.trim().split('\n'))[0]);
 		},
 		error: function(error) {
+			swal ( "Error!" ,  "Song not inserted to cart!" ,  "error" );
 			console.log("Error", error)
 		}
 	});

@@ -55,6 +55,30 @@ Table of Content:
 #upload_section{
 	margin-left: 60px;
 }
+#checkout_area{
+	margin-top: 70px;
+}
+#button_for_payment{
+
+	padding:15px;
+}
+#delete_button{
+	 border-bottom: 1px solid #808080;
+	cursor:pointer;
+}
+#qtySpan {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 10px;
+    background: #808080;
+    color: #FFF;
+    border-radius: 50%;
+}
 
 
 .form-group .input-rating .stars {
@@ -206,10 +230,13 @@ a {
 	margin-top:70px;
 	margin-bottom: 50px;
 }
+
+#search-bar-brano{
+	margin-top:20px;
+}
 .form-control .description{
 	overflow:auto;
 }
-
 .upload_table_class{
 	margin-top:10px;
 	margin-bottom:10px;
@@ -874,6 +901,7 @@ a {
 .blog_right_sidebar {
   border: 1px solid #eeeeee;
   background: #fafaff;
+  margin-top: px;
   padding: 30px; }
   .blog_right_sidebar .widget_title {
     font-size: 18px;

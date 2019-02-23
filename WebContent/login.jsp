@@ -28,29 +28,6 @@
 
 	<!--================Header Menu Area =================-->
 	<header class="header_area">
-		<div class="top_menu row m0">
-			<div class="container-fluid">
-				<div class="float-right">
-					<ul class="right_side">
-						<li>
-							<a href="index">
-								Home
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								Go to cart
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								About Us
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
@@ -81,7 +58,7 @@
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
 							<h4>New to our website?</h4>
-							<p>Become a Rockstar with us!</p>
+							<p>Become a Rockstar!</p>
 							<a class="main_btn" href="registration">Create an Account</a>
 						</div>
 					</div>

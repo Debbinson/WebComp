@@ -26,35 +26,13 @@
 	<link rel="stylesheet" href="css/responsive.css">
 <body>
 <!--================Header Menu Area =================-->
+
 	<header class="header_area">
-		<div class="top_menu row m0">
-			<div class="container-fluid">
-				<div class="float-right">
-					<ul class="right_side">
-						<li>
-							<a href="user">
-								My Account
-							</a>
-						</li>
-						<li>
-							<a href="checkout">
-								Go to cart
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								About us
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index">
+					<a class="navbar-brand logo_h" href="index.html">
 						<img src="img/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -67,11 +45,52 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<div class="row w-100">
 							<div class="col-lg-7 pr-0">
-								<input id="search-bar-brano" class="form-control search-field input" type="text" placeholder="Search song" >
+								<ul class="nav navbar-nav center_nav pull-right">
+									<li class="nav-item">
+										<a class="nav-link" href="index.html">Home</a>
+									</li>
+
+										<li class="nav-item submenu dropdown">
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social</a>
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="#">Facebook</a>
+													<li class="nav-item">
+														<a class="nav-link" href="#">Instagram</a>
+														<li class="nav-item">
+															<a class="nav-link" href="#">Twitter</a>
+														</li>
+											</ul>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">About us</a>
+											</li>
+								</ul>
 							</div>
 
 							<div class="col-lg-5">
-					
+								<ul class="nav navbar-nav navbar-right right_nav pull-right">
+										<hr>
+										
+										<li class="nav-item">
+										<a href="logout" class="icons">
+											<i class="fa fa-sign-out" aria-hidden="true"></i>
+											
+										</a>
+										</li>
+										
+										<hr>
+									
+									
+										<hr>
+	
+										<li class="nav-item">
+											<a href="user" class="icons">
+												<i class="fa fa-user" aria-hidden="true"></i>
+											</a>
+										</li>
+									<hr>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -80,41 +99,189 @@
 		</div>
 	</header>
 	<!--================Header Menu Area =================-->
-<section class="checkout_area section_gap">
+	
+	
+		<section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                
+                    <h2>Shopping Cart</h2>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>       	
+	
+	<!-- ========================= CHECKOUT====================0 -->
+<!--  <section class="banner_inner d-flex align-items-center"> -->	
+		<section class="cart_area">
 		<div class="container">
-			<div class="col-lg-4">
-						<div class="order_box" >
-							<h2>Your Order</h2>
-							<ul class="list" id="box">
-								<li>
-									<a >Product
-										<span>Total</span>
-									</a>
-								</li>
+		<c:set var="totale" value="${0}" />
+		<c:if test="${empty CARRELLO_UTENTE}">
+		<h3 class="text-center">Shopping cart is empty</h3>
+		<h5 class="text-center">Click here to vist our catalogue</h5>
+		<p align="center">
+		<a class="gray_btn center" href="index">Catalogue</a>	
+		</p>								
+		</c:if>
+	<c:if test="${not empty CARRELLO_UTENTE}">
+		<h3 class="text-center">Your order</h3>
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Product</th>
+								<th scope="col">Price</th>
+								<th scope="col">Rating</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						<c:forEach items="${CARRELLO_UTENTE}" var="brano">	
+
+							<tr>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src="img/product/single-product/cart-1.jpg" alt="">
+										</div>
+										<div class="media-body">
+											<a href='brano?whatsend=GetDettaglioBrano&idBrano=${brano.idBrano}'>${brano.titolo}</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>${brano.prezzo} €</h5>
+								</td>
+								<c:set var="totale" value="${totale+brano.prezzo}" />
+								<td>
+									<div class="product_count">
+											<strong>${brano.stelle}</strong>									
+									</div>
+								</td>
+								<td>
+									<h5>${totale} €</h5>
+								</td>
+								<td class="text-right">
+										<a onclick='removeFromCart(${brano.idBrano})' class="icons">
+											<i class="fa fa-close" aria-hidden="true" id="delete_button"></i>
+											
+										</a>
+								</td>
+							</tr>
+							</c:forEach>
+							<tr>
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td>
+									<h5>Subtotal</h5>
+								</td>
+								<td>
+									<h5>${totale} €</h5>
+								</td>
+								
+							</tr>
+						
+							<tr class="out_button_area">
+								
+								<td>
+
+								</td>
+								<td>
+
+								</td>
+								<td>
+									<div class="checkout_btn_inner">
+										<a class="gray_btn" href="index">Continue Shopping</a>									
+										<button id="place_order_btn" class="main_btn">Proceed to checkout</button>
+										<form id="pay_with_card" class="pull-right" action='checkout?whatsend=StripePayment&total=${totale*100}' method="post" style="display:none">
+											<script src="https://checkout.stripe.com/checkout.js"
+												class="stripe-button"
+												data-key="pk_test_DEjyvP1VC9EQDQwaPQX8HUHY"
+												data-amount='${totale*100}'
+												data-name='${LOGINED_USER.nome } ${LOGINED_USER.cognome }'
+												data-description="Place Order!"
+												data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+												data-locale="auto" data-currency="eur">
+											</script>
+										</form>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</c:if>
+		</div>
+	</section>
+		
+		
+		
+		
+		<!-- <div class="blog_right_sidebar">
+			<div class="col-lg-12   " id="checkout_area">
+			<h2>Your Order</h2>
+			<table class="table" id="product-table">
+			
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Rating</th>
+									<th></th>
+									<th></th>
+									<th class="text-center">Price</th>
+									<th class="text-right"></th>
+								</tr>
+							</thead>
+					 <div class="order_box" >  
+							
+							
+							<tbody id="brani_table">
+							
 							<c:forEach items="${CARRELLO_UTENTE}" var="brano">	
-								<li id="song${brano.idBrano}">
-								<a onclick='removeFromCart(${brano.idBrano})'class="btn primary-btn fa fa-close"></a>
-									<a href='brano?whatsend=GetDettaglioBrano&idBrano=${brano.idBrano}' ">${brano.titolo}
-										
-										<span class="last">${brano.prezzo} €</span>
-									</a>
-								</li>
+								<tr id="song${brano.idBrano}">
+									<td class="details"><a href='brano?whatsend=GetDettaglioBrano&idBrano=${brano.idBrano}'>${brano.titolo}</a></td>
+									<td class="details"><strong>${brano.stelle}</strong></td>
+									<td></td>
+									<td></td>											
+										<td class="total text-center"><strong>${brano.prezzo} €</strong></td>
+										<td class="text-right">
+										<a onclick='removeFromCart(${brano.idBrano})' class="icons">
+											<i class="fa fa-close" aria-hidden="true" id="delete_button"></i>
+											
+										</a>
+										</td>
+									
+									
+								</tr>
 								
 							</c:forEach>
-							</ul>
-							<ul class="list list_2">
-								<li>
+							</tbody>
+							
+							<tfoot>
+								<tr>
 									<c:set var="totale" value="${0}" />
 									<c:forEach items="${CARRELLO_UTENTE}" var="brano">
 										<c:set var="totale" value="${totale+brano.prezzo}" />
 									</c:forEach>
-									<a>Total
-										<span>${totale} €</span>
-									</a>
-								</li>
-							</ul>
-							<div class="pull-right">
-							<button id="place_order_btn" class="primary-btn">Place Order</button>
+									<th class="empty" colspan="3"></th>
+									<th>TOTAL</th>
+									<th id="totale_th" colspan="2" class="total">${totale} €</th>
+								</tr>
+							</tfoot>
+						</table>	
+							
+							<div class="pull-right" id="button_for_payment">
+							<button id="place_order_btn" class="genric-btn danger-border circle">Place Order</button>
 							<form id="pay_with_card" action='checkout?whatsend=StripePayment&total=${totale*100}' method="post" style="display:none">
 								<script src="https://checkout.stripe.com/checkout.js"
 									class="stripe-button"
@@ -126,11 +293,11 @@
 									data-locale="auto" data-currency="eur">
   										</script>
 							</form>
-						</div>
+							</div>
 						</div>
 					</div>
-				</div>
-</section>
+					</div>   -->
+ <!-- </section>   -->
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/RemoveFromCart.js"></script>

@@ -32,36 +32,7 @@
 
 	<!--================Header Menu Area =================-->
 	<header class="header_area">
-		<div class="top_menu row m0">
-			<div class="container-fluid">
-				<div class="float-right">
-					<ul class="right_side">
-						<li>
-							<c:if test="${LOGINED_USER==null}">
-							<a href="login">
-								Login/Register
-							</a>
-							</c:if>
-							<c:if test="${LOGINED_USER!=null}">
-							<a href="user">
-								My Account
-							</a>
-							</c:if>
-						</li>
-						<li>
-							<a href="checkout">
-								Go to cart
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								About us
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
@@ -79,11 +50,73 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<div class="row w-100">
 							<div class="col-lg-7 pr-0">
+							<ul class="nav navbar-nav center_nav pull-right">
+									<li class="nav-item">
+										<a class="nav-link" href="index.html">Home</a>
+									</li>
+
+										<li class="nav-item submenu dropdown">
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social</a>
+											<ul class="dropdown-menu">
+												<li class="nav-item">
+													<a class="nav-link" href="#">Facebook</a>
+													<li class="nav-item">
+														<a class="nav-link" href="#">Instagram</a>
+														<li class="nav-item">
+															<a class="nav-link" href="#">Twitter</a>
+														</li>
+											</ul>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">About us</a>
+											</li>
+								</ul>
 								<input id="search-bar-brano" class="form-control search-field input" type="text" placeholder="Search song" >
+								
 							</div>
 
 							<div class="col-lg-5">
-					
+								<ul class="nav navbar-nav navbar-right right_nav pull-right">
+									<c:if test="${LOGINED_USER==null}">
+									<hr>
+									<li class="nav-item">
+										<a href="login" class="icons">
+											<i class="fa fa-sign-in" aria-hidden="true"></i>
+										</a>
+									</li>
+									</c:if>
+									<c:if test="${LOGINED_USER!=null}">
+										<hr>
+										
+										<li class="nav-item">
+										<a href="logout" class="icons">
+											<i class="fa fa-sign-out" aria-hidden="true"></i>
+											
+										</a>
+									</li>
+										
+										<li class="nav-item">
+											<a href="user" class="icons">
+												<i class="fa fa-user" aria-hidden="true"></i>
+											</a>
+										</li>
+	
+										<hr>
+									
+									
+										<hr>
+	
+										<li class="nav-item">
+										<div class="header-btns-icon">
+											<a href="checkout" class="icons">
+												<i class="fa fa-shopping-cart"></i>
+												 <span id="qtySpan" class="qty"></span>
+											</a>
+											</div>
+										</li>
+									</c:if>
+									<hr>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -209,6 +242,7 @@
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/stellar.js"></script>
+	
 	<script src="vendors/lightbox/simpleLightbox.min.js"></script>
 	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
 	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
@@ -222,6 +256,7 @@
 	<script src="js/theme.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/AddToCart.js"></script>
+	<script src="js/UpdateQty.js"></script>
 	
 	
 </body>

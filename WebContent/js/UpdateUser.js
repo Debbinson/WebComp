@@ -28,11 +28,11 @@ $(document).ready(function() {
             dataType: 'json',
             data: {"indirizzo": JSON.stringify(indirizzo), "whatsend": "UpdateIndirizzo"},
             success: function(status) {
-            	success_error("Entered", "Billing address updated!");
+            	swal ( "Entered" ,  "Billing address updated!" ,  "success" );
                 console.log("Entered", status);
             },
             error: function(error) {
-            	success_error("e", "Billing address not updated!");
+            	swal ( "Oops" ,  "Billing address not updated!" ,  "error" );
             	console.log("Error", error);
             }
         });
@@ -57,12 +57,12 @@ $(document).ready(function() {
             dataType: 'json',
             data: {"utente": JSON.stringify(utente), "whatsend": "UpdateUtente"},
             success: function(status) {
-            	alert("Utente Updated")
+            	swal ( "Cool" ,  "User updated!" ,  "success" );
                 console.log("Entered", status);
             	 $("[name='span-username']").html(username);
             },
             error: function(error) {
-            	alert("Utente Not Updated")
+            	swal ( "Oops" ,  "User not updated!" ,  "error" );
                 console.log("Error", error);
             }
         });
