@@ -29,11 +29,11 @@ public class BranoDAO implements DAO {
 
 			Brano brano = (Brano) newBean;
 			int disponibile = brano.isDisponibile() == true ? 1 : 0;
-			String insertBrano = "INSERT INTO BRANO(titolo, descrizione, prezzo, filepath, brano_categoria, brano_utente, disponibile, date_ins)";
+			String insertBrano = "INSERT INTO brano(titolo, descrizione, prezzo, filepath, Brano_Categoria, Brano_Utente, disponibile, date_ins)";
 			insertBrano += "VALUES('" + brano.getTitolo() + "', '" + brano.getDescrizione() + "', '" + brano.getPrezzo()
 					+ "', '" + brano.getPath() + "', '" + brano.getBrano_categoria() + "', '" + brano.getBrano_utente()
 					+ "', '" + disponibile + "', " + "SYSDATE()); ";
-			System.out.println("INSERT BRANO: " + insertBrano);
+			System.out.println("INSERT brano: " + insertBrano);
 			stmt.executeUpdate(insertBrano);
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -70,9 +70,9 @@ public class BranoDAO implements DAO {
 
 			Brano brano = (Brano) beanToUpdate;
 			
-			String updateBrano = "UPDATE BRANO ";
-			updateBrano += "SET BRANO_CATEGORIA ='"+ "3" + "';";
-			System.out.println("UPDATE BRANO: " + updateBrano);
+			String updateBrano = "UPDATE brano ";
+			updateBrano += "SET Brano_Categoria ='"+ "3" + "';";
+			System.out.println("UPDATE brano: " + updateBrano);
 			stmt.executeUpdate(updateBrano);
 			conn.commit();
 		} catch (Exception err) {
@@ -101,13 +101,13 @@ public class BranoDAO implements DAO {
 
 			Brano brano = (Brano) beanToUpdate;
 			int disponibile = brano.isDisponibile() == true ? 1 : 0;
-			String updateBrano = "UPDATE BRANO ";
-			updateBrano += "SET TITOLO = '" + brano.getTitolo() + "', DESCRIZIONE = '" + brano.getDescrizione()
-					+ "', PREZZO = '" + brano.getPrezzo() + "', FILEPATH = '" + brano.getPath()
-					+ "', BRANO_CATEGORIA = '" + brano.getBrano_categoria() + "', BRANO_UTENTE = '"
-					+ brano.getBrano_utente() + "', DISPONIBILE = '" + disponibile + "'";
-			updateBrano += "WHERE IDBRANO = '" + brano.getIdBrano() + "';";
-			System.out.println("UPDATE BRANO: " + updateBrano);
+			String updateBrano = "UPDATE brano ";
+			updateBrano += "SET titolo = '" + brano.getTitolo() + "', descrizione = '" + brano.getDescrizione()
+					+ "', prezzo = '" + brano.getPrezzo() + "', filepath = '" + brano.getPath()
+					+ "', Brano_Categoria = '" + brano.getBrano_categoria() + "', Brano_Utente = '"
+					+ brano.getBrano_utente() + "', disponibile = '" + disponibile + "'";
+			updateBrano += "WHERE idBrano = '" + brano.getIdBrano() + "';";
+			System.out.println("UPDATE brano: " + updateBrano);
 			stmt.executeUpdate(updateBrano);
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -137,7 +137,7 @@ public class BranoDAO implements DAO {
 			conn = DBConnectorFactory.getInstance().makeDBConnection();
 			conn.setAutoCommit(false);
 			Brano brano;
-			String query = "SELECT * FROM BRANO";
+			String query = "SELECT * FROM brano";
 			stmt = conn.prepareStatement(query);
 			ResultSet result = stmt.executeQuery();
 			while (result.next()) {
@@ -185,19 +185,19 @@ public class BranoDAO implements DAO {
 
 			if (criteria instanceof Utente) {
 				Utente utente = (Utente) criteria;
-				selectBrani = "SELECT * FROM BRANO ";
-				selectBrani += "WHERE BRANO_UTENTE = '" + utente.getIdUser() + "';";
+				selectBrani = "SELECT * FROM brano ";
+				selectBrani += "WHERE Brano_Utente = '" + utente.getIdUser() + "';";
 			} else if (criteria instanceof Brano) {
 				Brano brano = (Brano) criteria;
-				selectBrani = "SELECT * FROM BRANO ";
+				selectBrani = "SELECT * FROM brano ";
 				selectBrani += "WHERE TITOLO LIKE '%" + brano.getTitolo() + "%'";
 			} else if (criteria instanceof Categoria) {
 				Categoria categoria = (Categoria) criteria;
-				selectBrani = "SELECT * FROM BRANO ";
-				selectBrani += "WHERE BRANO_CATEGORIA = '" + categoria.getIdCategoria() + "';";
+				selectBrani = "SELECT * FROM brano ";
+				selectBrani += "WHERE Brano_Categoria = '" + categoria.getIdCategoria() + "';";
 			}
 
-			System.out.println("SELECT BRANO: " + selectBrani);
+			System.out.println("SELECT brano: " + selectBrani);
 			ResultSet result = stmt.executeQuery(selectBrani);
 			while (result.next()) {
 				Brano brano = new Brano();
@@ -239,9 +239,9 @@ public class BranoDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Brano canzone = (Brano) beanToGet;
-			String selectCanzone = "SELECT * FROM BRANO WHERE (IDBRANO = '" + canzone.getIdBrano() + "' OR TITOLO = '"
+			String selectCanzone = "SELECT * FROM brano WHERE (idBrano = '" + canzone.getIdBrano() + "' OR titolo = '"
 					+ canzone.getTitolo() + "')";
-			System.out.println("SELECT BRANO: " + selectCanzone);
+			System.out.println("SELECT brano: " + selectCanzone);
 			ResultSet result = stmt.executeQuery(selectCanzone);
 
 			if (!result.next())
@@ -253,8 +253,8 @@ public class BranoDAO implements DAO {
 			output.setDescrizione(result.getString("descrizione"));
 			output.setPrezzo(result.getInt("prezzo"));
 			output.setPath(result.getString("filepath"));
-			output.setBrano_categoria(result.getInt("brano_categoria"));
-			output.setBrano_utente(result.getInt("brano_utente"));
+			output.setBrano_categoria(result.getInt("Brano_Categoria"));
+			output.setBrano_utente(result.getInt("Brano_Utente"));
 			output.setDisponibile(result.getBoolean("disponibile"));
 			output.setDate_ins(result.getString("date_ins"));
 			return output;
@@ -280,7 +280,7 @@ public class BranoDAO implements DAO {
 			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 
-			String selectBrano = "SELECT * FROM BRANO WHERE IDBRANO = '" + brano.getIdBrano() + "'";
+			String selectBrano = "SELECT * FROM brano WHERE idBrano = '" + brano.getIdBrano() + "'";
 			System.out.println("SELECT BRANO: " + selectBrano);
 			ResultSet result = stmt.executeQuery(selectBrano);
 
@@ -294,8 +294,8 @@ public class BranoDAO implements DAO {
 			output.setDescrizione(result.getString("descrizione"));
 			output.setPrezzo(result.getInt("prezzo"));
 			output.setPath(result.getString("filepath"));
-			output.setBrano_categoria(result.getInt("brano_categoria"));
-			output.setBrano_utente(result.getInt("brano_utente"));
+			output.setBrano_categoria(result.getInt("Brano_Categoria"));
+			output.setBrano_utente(result.getInt("Brano_Utente"));
 			output.setDisponibile(result.getBoolean("disponibile"));
 			output.setDate_ins(result.getString("date_ins"));
 			return output;
@@ -323,10 +323,10 @@ public class BranoDAO implements DAO {
 			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 
-			selectBrani = "SELECT * FROM BRANO ";
-			selectBrani += "WHERE PREZZO >= '" + priceMin + "' AND PREZZO <='" + priceMax + "';";
+			selectBrani = "SELECT * FROM brano ";
+			selectBrani += "WHERE prezzo >= '" + priceMin + "' AND prezzo <='" + priceMax + "';";
 
-			System.out.println("SELECT BRANO: " + selectBrani);
+			System.out.println("SELECT brano: " + selectBrani);
 			ResultSet result = stmt.executeQuery(selectBrani);
 			while (result.next()) {
 				Brano brano = new Brano();

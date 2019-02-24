@@ -30,21 +30,21 @@ public class UtenteDAO implements DAO {
 
 			// Inserisco L'Utente
 			Utente utente = (Utente) newBean;
-			String insertUtente = "INSERT INTO UTENTE(nome, cognome, email, username, password, date_ins)";
+			String insertUtente = "INSERT INTO utente(nome, cognome, email, username, password, date_ins)";
 			insertUtente += "VALUES('" + utente.getNome() + "', '" + utente.getCognome() + "', '" + utente.getEmail()
 					+ "', '" + utente.getUsername() + "', '" + utente.getPassword() + "', " + "SYSDATE()); ";
-			System.out.println("INSERT UTENTE: " + insertUtente);
+			System.out.println("INSERT utente: " + insertUtente);
 			stmt.executeUpdate(insertUtente);
 			conn.commit();
 
 			// Inserisco il ruolo
-			String getLastUser = "SELECT IDUTENTE FROM UTENTE WHERE USERNAME = '" + ((Utente) newBean).getUsername()
+			String getLastUser = "SELECT idUtente FROM utente WHERE username = '" + ((Utente) newBean).getUsername()
 					+ "';";
 			ResultSet resultU = stmt.executeQuery(getLastUser);
 			resultU.next();
 			String idUser = resultU.getString("idutente");
 
-			String insertRuolo = "INSERT INTO ROLE_UTENTE (IDROLE, IDUTENTE)";
+			String insertRuolo = "INSERT INTO role_utente (idRole, idUtente)";
 			insertRuolo += "VALUES('" + 1 + "', '" + idUser + "');";
 			System.out.println("INSERT ROLE_USER: " + insertRuolo);
 			stmt.executeUpdate(insertRuolo);
@@ -83,11 +83,11 @@ public class UtenteDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Utente utente = (Utente) beanToUpdate;
-			String updateUtente = "UPDATE UTENTE ";
-			updateUtente += "SET USERNAME = '" + utente.getUsername() + "', NOME = '" + utente.getNome()
-					+ "', COGNOME = '" + utente.getCognome() + "', EMAIL = '" + utente.getEmail() + "'";
-			updateUtente += "WHERE IDUTENTE = '" + utente.getIdUser() + "';";
-			System.out.println("UPDATE UTENTE: " + updateUtente);
+			String updateUtente = "UPDATE utente ";
+			updateUtente += "SET username = '" + utente.getUsername() + "', nome = '" + utente.getNome()
+					+ "',cognome = '" + utente.getCognome() + "', email = '" + utente.getEmail() + "'";
+			updateUtente += "WHERE idUtente = '" + utente.getIdUser() + "';";
+			System.out.println("UPDATE utente: " + updateUtente);
 			stmt.executeUpdate(updateUtente);
 			conn.commit();
 
@@ -118,7 +118,7 @@ public class UtenteDAO implements DAO {
 			conn = DBConnectorFactory.getInstance().makeDBConnection();
 			conn.setAutoCommit(false);
 			Utente utente;
-			String query = "SELECT DISTINCT USERNAME,idUtente FROM BRANO, UTENTE WHERE brano_utente=idUtente;";
+			String query = "SELECT DISTINCT username,idUtente FROM brano, utente WHERE Brano_Utente=idUtente;";
 			System.out.println("SELECT UTENTI: " + query);
 			stmt = conn.prepareStatement(query);
 			ResultSet result = stmt.executeQuery();
@@ -158,34 +158,34 @@ public class UtenteDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Utente utente = (Utente) beanToGet;
-			String selectUtente = "SELECT * FROM UTENTE WHERE (USERNAME = '" + utente.getUsername()
-					+ "' AND PASSWORD = '" + utente.getPassword() + "') OR (IDUTENTE = '" + utente.getIdUser() + "')";
-			System.out.println("SELECT UTENTE: " + selectUtente);
+			String selectUtente = "SELECT * FROM utente WHERE (username = '" + utente.getUsername()
+					+ "' AND password = '" + utente.getPassword() + "') OR (idUtente = '" + utente.getIdUser() + "')";
+			System.out.println("SELECT utente: " + selectUtente);
 			ResultSet result = stmt.executeQuery(selectUtente);
 
 			if (!result.next())
 				return null;
 
 			Utente output = new Utente();
-			output.setIdUser(result.getInt("idutente"));
+			output.setIdUser(result.getInt("idUtente"));
 			output.setNome(result.getString("nome"));
 			output.setCognome(result.getString("cognome"));
 			output.setEmail(result.getString("email"));
 			output.setUsername(result.getString("username"));
 			output.setPassword(result.getString("password"));
 
-			String selectRoleId = "SELECT * FROM ROLE_UTENTE WHERE IDUTENTE = '" + result.getString("idutente") + "'";
-			System.out.println("SELECT ROLE_UTENTE: " + selectRoleId);
+			String selectRoleId = "SELECT * FROM role_utente WHERE idUtente = '" + result.getString("idUtente") + "'";
+			System.out.println("SELECT role_utente: " + selectRoleId);
 			ResultSet resultRU = stmt.executeQuery(selectRoleId);
 			List<String> idRoles = new ArrayList<String>();
 			while (resultRU.next())
-				idRoles.add(resultRU.getString("idrole"));
+				idRoles.add(resultRU.getString("idRole"));
 
-			String selectRoleName = "SELECT * FROM ROLE WHERE IDROLE = '";
+			String selectRoleName = "SELECT * FROM role WHERE idRole = '";
 			for (int i = 0; i < idRoles.size() - 1; i++)
 				selectRoleName += idRoles.get(i) + "' OR '";
 			selectRoleName += idRoles.get(idRoles.size() - 1) + "'";
-			System.out.println("SELECT ROLE: " + selectRoleName);
+			System.out.println("SELECT role: " + selectRoleName);
 			ResultSet resultR = stmt.executeQuery(selectRoleName);
 
 			List<String> roles = new LinkedList<String>();

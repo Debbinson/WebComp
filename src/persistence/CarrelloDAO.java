@@ -27,10 +27,10 @@ public class CarrelloDAO implements DAO {
 
 			Carrello carrello = (Carrello) newBean;
 
-			String selectAcquisto = "SELECT * FROM ACQUISTO ";
-			selectAcquisto += "WHERE ACQUISTO_BRANO = '" + carrello.getCarrello_brano() + "' AND ACQUISTO_UTENTE = '"
+			String selectAcquisto = "SELECT * FROM acquisto ";
+			selectAcquisto += "WHERE Acquisto_Brano = '" + carrello.getCarrello_brano() + "' AND Acquisto_Utente = '"
 					+ carrello.getCarrello_utente() + "';";
-			System.out.println("SELECT ACQUISTO: " + selectAcquisto);
+			System.out.println("SELECT acquisto: " + selectAcquisto);
 			ResultSet resultAcquisto = stmt.executeQuery(selectAcquisto);
 			if (resultAcquisto.next()) {
 				if (stmt != null)
@@ -41,7 +41,7 @@ public class CarrelloDAO implements DAO {
 				throw new SQLException("BRANO ALREADY IN TABLE ACQUISTO");
 			}
 
-			String selectBrano = "SELECT * FROM BRANO ";
+			String selectBrano = "SELECT * FROM brano ";
 			selectBrano += "WHERE IDBRANO = '" + carrello.getCarrello_brano() + "';";
 			System.out.println("CHECK DISPONIBILITY BRANO: " + selectBrano);
 			ResultSet resultBrano = stmt.executeQuery(selectBrano);
@@ -54,10 +54,10 @@ public class CarrelloDAO implements DAO {
 				throw new SQLException("BRANO NOT AVAILABLE");
 			}
 
-			String insertCarrello = "INSERT INTO CARRELLO(carrello_utente, carrello_brano, data_ins)";
+			String insertCarrello = "INSERT INTO carrello(Carrello_Utente, Carrello_Brano, data_ins)";
 			insertCarrello += "VALUES('" + carrello.getCarrello_utente() + "', '" + carrello.getCarrello_brano() + "', "
 					+ "SYSDATE());";
-			System.out.println("INSERT CARRELLO: " + insertCarrello);
+			System.out.println("INSERT carrello: " + insertCarrello);
 			stmt.executeUpdate(insertCarrello);
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -89,10 +89,10 @@ public class CarrelloDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Carrello carrello = (Carrello) beanToRemove;
-			String deleteCarrello = "DELETE FROM CARRELLO ";
-			deleteCarrello += "WHERE CARRELLO_UTENTE = '" + carrello.getCarrello_utente() + "' AND CARRELLO_BRANO = '"
+			String deleteCarrello = "DELETE FROM carrello ";
+			deleteCarrello += "WHERE Carrello_Utente = '" + carrello.getCarrello_utente() + "' AND Carrello_Brano = '"
 					+ carrello.getCarrello_brano() + "';";
-			System.out.println("DELETE CARRELLO: " + deleteCarrello);
+			System.out.println("DELETE carrello: " + deleteCarrello);
 			stmt.executeUpdate(deleteCarrello);
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -142,9 +142,9 @@ public class CarrelloDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Utente utente = (Utente) criteria;
-			selectCarrello = "SELECT * FROM CARRELLO ";
-			selectCarrello += "WHERE CARRELLO_UTENTE = '" + utente.getIdUser() + "';";
-			System.out.println("SELECT CARRELLO_BRANO: " + selectCarrello);
+			selectCarrello = "SELECT * FROM carrello ";
+			selectCarrello += "WHERE Carrello_Utente = '" + utente.getIdUser() + "';";
+			System.out.println("SELECT Carrello_Brano: " + selectCarrello);
 			ResultSet resultIDBrani = stmt.executeQuery(selectCarrello);
 
 			if (!resultIDBrani.next())
@@ -152,13 +152,13 @@ public class CarrelloDAO implements DAO {
 
 			ArrayList<String> ids = new ArrayList<String>();
 			do {
-				ids.add(resultIDBrani.getString("carrello_brano"));
+				ids.add(resultIDBrani.getString("Carrello_Brano"));
 			} while ((resultIDBrani.next()));
 
-			String selectBrani = "SELECT * FROM BRANO WHERE ";
+			String selectBrani = "SELECT * FROM brano WHERE ";
 			for (int i = 0; i < ids.size() - 1; i++)
-				selectBrani += "IDBRANO = '" + ids.get(i) + "' OR ";
-			selectBrani += "IDBRANO = '" + ids.get(ids.size() - 1) + "';";
+				selectBrani += "idBrano = '" + ids.get(i) + "' OR ";
+			selectBrani += "idBrano = '" + ids.get(ids.size() - 1) + "';";
 			System.out.println("SELECT BRANI: " + selectBrani);
 			ResultSet result = stmt.executeQuery(selectBrani);
 			ArrayList<Brano> output = new ArrayList<>();

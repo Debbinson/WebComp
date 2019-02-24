@@ -42,14 +42,14 @@ public class CategoriaDAO implements DAO {
 			conn.setAutoCommit(false);
 			stmt = conn.createStatement();
 
-			String selectCategorie = "SELECT IDCATEGORIA, NOME FROM CATEGORIA;";
-			System.out.println("SELECT CATEGORIA: " + selectCategorie);
+			String selectCategorie = "SELECT idCategoria, nome FROM categoria;";
+			System.out.println("SELECT categoria: " + selectCategorie);
 			ResultSet result = stmt.executeQuery(selectCategorie);
 
 			List<Bean> output = new LinkedList<>();
 			while (result.next()) {
 				Categoria c = new Categoria();
-				c.setIdCategoria(result.getInt("idcategoria"));
+				c.setIdCategoria(result.getInt("idCategoria"));
 				c.setNome(result.getString("nome"));
 				output.add(c);
 			}
@@ -79,16 +79,16 @@ public class CategoriaDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Categoria categoriaToFind = (Categoria) beanToGet;
-			String selectCategorie = "SELECT IDCATEGORIA, NOME FROM CATEGORIA WHERE IDCATEGORIA = '"
+			String selectCategorie = "SELECT idCategoria, nome FROM categoria WHERE idCategoria = '"
 					+ categoriaToFind.getIdCategoria() + "';";
-			System.out.println("SELECT CATEGORIA: " + selectCategorie);
+			System.out.println("SELECT categoria: " + selectCategorie);
 			ResultSet result = stmt.executeQuery(selectCategorie);
 
 			if (!result.next())
 				throw new SQLException("Categoria not found");
 
 			Categoria output = new Categoria();
-			output.setIdCategoria(result.getInt("idcategoria"));
+			output.setIdCategoria(result.getInt("idCategoria"));
 			output.setNome(result.getString("nome"));
 			return output;
 		} catch (SQLException sqle) {

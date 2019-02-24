@@ -27,10 +27,10 @@ public class AcquistoDAO implements DAO {
 
 			// Inserisco Checkout
 			Acquisto acquisto = (Acquisto) newBean;
-			String insertAcquisto = "INSERT INTO ACQUISTO(acquisto_utente, acquisto_brano, date_ins)";
+			String insertAcquisto = "INSERT INTO acquisto(Acquisto_Utente, Acquisto_Brano, date_ins)";
 			insertAcquisto += "VALUES('" + acquisto.getAcquisto_Utente() + "', '" + acquisto.getAcquisto_Brano() + "', "
 					+ "SYSDATE()); ";
-			System.out.println("INSERT ACQUISTO: " + insertAcquisto);
+			System.out.println("INSERT acquisto: " + insertAcquisto);
 			stmt.executeUpdate(insertAcquisto);
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -86,21 +86,21 @@ public class AcquistoDAO implements DAO {
 			stmt = conn.createStatement();
 
 			Utente utente = (Utente) criteria;
-			String selectAcquisti = "SELECT * FROM ACQUISTO ";
-			selectAcquisti += "WHERE ACQUISTO_UTENTE = '" + utente.getIdUser() + "';";
+			String selectAcquisti = "SELECT * FROM acquisto ";
+			selectAcquisti += "WHERE Acquisto_Utente = '" + utente.getIdUser() + "';";
 
-			System.out.println("SELECT ACQUISTO: " + selectAcquisti);
+			System.out.println("SELECT acquisto: " + selectAcquisti);
 			ResultSet resultAcquisto = stmt.executeQuery(selectAcquisti);
-			String selectBrano = "SELECT * FROM BRANO WHERE ";
+			String selectBrano = "SELECT * FROM brano WHERE ";
 			List<String> idbrani = new ArrayList<String>();
 			while (resultAcquisto.next())
-				idbrani.add(resultAcquisto.getString("acquisto_brano"));
+				idbrani.add(resultAcquisto.getString("Acquisto_Brano"));
 			if (idbrani.isEmpty())
 				return output;
 			for (int i = 0; i < idbrani.size() - 1; i++)
-				selectBrano += "IDBRANO = '" + idbrani.get(i) + "' OR ";
-			selectBrano += "IDBRANO = '" + idbrani.get(idbrani.size() - 1) + "';";
-			System.out.println("SELECT BRANO: " + selectBrano);
+				selectBrano += "idBrano = '" + idbrani.get(i) + "' OR ";
+			selectBrano += "idBrano = '" + idbrani.get(idbrani.size() - 1) + "';";
+			System.out.println("SELECT brano: " + selectBrano);
 
 			ResultSet result = stmt.executeQuery(selectBrano);
 			while (result.next()) {

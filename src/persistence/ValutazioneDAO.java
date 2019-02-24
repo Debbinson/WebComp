@@ -28,10 +28,10 @@ public class ValutazioneDAO implements DAO{
 			// Inserisco L'val
 			Valutazione val = (Valutazione) newBean;
 			
-			String insertValutazione = "INSERT INTO VALUTAZIONE(rating,commento,Brano_idBrano,Utente_nomeUtente, date_ins)";
+			String insertValutazione = "INSERT INTO valutazione(rating,commento,Brano_idBrano,Utente_nomeUtente, date_ins)";
 			insertValutazione += "VALUES('"+val.getRating() + "', '" + val.getCommento() + "', '" + val.getBrano_idBrano()+"', '" + val.getUtente_nomeUtente()+"', SYSDATE());";
 			
-			System.out.println("INSERT VALUTAZIONE: " + insertValutazione);
+			System.out.println("INSERT valutazione: " + insertValutazione);
 			
 			stmt.executeUpdate(insertValutazione);
 			conn.commit();

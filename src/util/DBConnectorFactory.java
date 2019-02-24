@@ -15,9 +15,9 @@ public class DBConnectorFactory {
 
 	private DBConnectorFactory() {
 		DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-		DB_CONNECTION = "jdbc:mysql://localhost:3306/commerce_and_music?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-		DB_USER = "root";
-		DB_PASSWORD = "Tavolaperiodica1.";
+		DB_CONNECTION = "jdbc:mysql://rockstar.cwswjgvrnmwi.eu-west-2.rds.amazonaws.com:3306/rockstardatabase?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		DB_USER = "rockstaruser";
+		DB_PASSWORD = "WebComputing2019.";
 	}
 
 	public static DBConnectorFactory getInstance() {
