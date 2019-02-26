@@ -32,7 +32,7 @@ public class CheckoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		if (((Utente) request.getSession().getAttribute("LOGINED_USER")).getRoles().contains("ADMIN")) {
-			AppUtils.Forward(request, response, this, "/admin");
+			AppUtils.Forward(request, response, this, "/admin.jsp");
 			return;
 		}
 
@@ -101,7 +101,7 @@ public class CheckoutServlet extends HttpServlet {
 				response.getWriter().write("200");
 			} catch (Exception e) {
 				e.printStackTrace();
-				AppUtils.Forward(request, response, this, "/error.jsp");
+				AppUtils.Forward(request, response, this, "/error");
 				return;
 			}
 		} else if (whatsend != null && idBrano != null && whatsend.equalsIgnoreCase("RemoveBrano")) {
@@ -114,7 +114,7 @@ public class CheckoutServlet extends HttpServlet {
 				response.getWriter().write("200");
 			} catch (Exception e) {
 				e.printStackTrace();
-				AppUtils.Forward(request, response, this, "/error.jsp");
+				AppUtils.Forward(request, response, this, "/error");
 				return;
 			}
 		} else if (whatsend != null && whatsend.equalsIgnoreCase("StripePayment")) {
@@ -140,7 +140,7 @@ public class CheckoutServlet extends HttpServlet {
 				Charge charge = Charge.create(params);
 
 				if (charge == null) {
-					AppUtils.Forward(request, response, this, "/paymentFailure.jsp");
+					AppUtils.Forward(request, response, this, "/paymentFailure");
 					return;
 				}
 

@@ -16,11 +16,17 @@ $(document).ready(function() {
 			var row_id = "row-" + key;
 			var input_name = $('#' + row_id).find('td:eq(1)').find('input');
 			var input_genre = $('#' + row_id).find('td:eq(2)').find('select');
-			var input_description = $('#' + row_id).find('td:eq(3)').find('textarea');
+			var input_description = $('#' + row_id).find('td:eq(3)').find('input');
 			var input_price = $('#' + row_id).find('td:eq(4)').find('input');
 			
 			if(input_name.val() !== "" && !is_duplicate(input_name.val())) {
 				var description = input_description.val();
+				if(description == ""){
+					alert("DESCRIPTION IS EMPTY");
+				}
+				if (description == undefined){
+					alert("DESCRIPTION IS UNDEFINED");
+				}
 				if (description == "" || description == undefined) description = "Description is missing";
 				var price = input_price.val();
 				if (price == "" || price == undefined) price = "0";

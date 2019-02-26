@@ -53,7 +53,7 @@
 	<section class="login_box_area p_120">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-6" align="center">
 					<div class="login_box_img">
 						<img class="img-fluid" src="img/login.jpg" alt="">
 						<div class="hover">
@@ -75,7 +75,6 @@
 							</div>
 							<div class="form-group">
 								<input class="input" type="hidden" name="redirectId" />
-								<!--value="<%= request.getParameter("redirectId") %>" -->
 							</div>
 							<div class="col-md-12 form-group">
 								<button class="btn submit_btn">Log In</button>

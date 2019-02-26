@@ -102,7 +102,7 @@ function updateCatalogo(brani) {
 	for(var i = 0; i < brani.length; i++) {
 		if(brani[i].disponibile){
 			newProduct += "<div class='col-lg-3 col-md-3 col-sm-6'><div class='f_p_item'>" +			
-			"<div class='f_p_img'><img class='img-fluid' src='img/product/feature-product/f-p-1.jpg' alt=''>" +
+			"<div class='f_p_img'><img class='img-fluid' src='img/product/single-product/s-product-1.jpg' alt=''>" +
 			"<div class='p_icon'>";
 			if(brani[i].prezzo <= 0)
 				newProduct += "<a href='SONG/" + brani[i].path +  "' download>" +"<i class='fa fa-arrow-down'></i></a> ";

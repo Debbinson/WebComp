@@ -59,20 +59,73 @@
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social</a>
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="#">Facebook</a>
+													<a class="nav-link" href="https://it-it.facebook.com/">Facebook</a>
 													<li class="nav-item">
-														<a class="nav-link" href="#">Instagram</a>
+														<a class="nav-link" href="https://www.instagram.com/?hl=it">Instagram</a>
 														<li class="nav-item">
-															<a class="nav-link" href="#">Twitter</a>
+															<a class="nav-link" href="https://twitter.com/login?lang=it">Twitter</a>
 														</li>
 											</ul>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#">About us</a>
+												<a class="nav-link" data-toggle="modal" data-target="#about-us">About us</a>
 											</li>
 								</ul>
 							</div>
 
+							 <div class="modal fade" id="about-us" role="dialog">
+							    <div class="modal-dialog">		
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							      <h2 align = "center">About us!</h2>
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							        </div>
+							        <div class="modal-body">
+							          <div class="row">
+
+							
+							<!-- Giovanni Profile -->
+									<div class="col-lg-6">
+										<a href="https://github.com/gioiannu">
+											<div class="blog_right_sidebar">
+												<aside class="single_sidebar_widget author_widget">
+													<img class = "author_img rounded-circle" src="./img/giovanni.jpg" alt="">
+												</aside>
+													<h3 align="center">Giovanni Iannuzzi</h3>
+											</div>
+										</a>
+										<h5 class="product-name" align="center">Developer</h5>
+									</div>
+									<!-- Giovanni Profile -->
+									
+									<!-- Alessandro Profile -->
+									<div class="col-lg-6">
+										<a href="https://github.com/Debbinson">
+											<div class="blog_right_sidebar">
+												<aside class="single_sidebar_widget author_widget">
+													<img class="author_img rounded-circle" src="./img/alessandro.jpg" alt="">
+												</aside>
+													<h3 align="center">Alessandro De Bartolo</h3>
+											</div>
+										</a>
+										<h5 class="product-name" align="center">Developer</h5>
+									</div>
+									<!-- Alessandro Profile -->
+							
+									</div>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+							  </div>
+
+
+							
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
 									<c:if test="${LOGINED_USER==null}">
@@ -138,11 +191,11 @@
 									<img class="d-block w-100" src="img/product/single-product/s-product-1.jpg">
 									<div class= "audioBlock">
 										<audio id="player" controls onloadeddata="reproducePreview(this,${BRANO.prezzo})" name="media" >
-											<source src="SONG/${BRANO.path}" type="audio/mp3">
+											<source src="SONG/${BRANO.path}" type="audio/mp3">	
 											<source src="SONG/${BRANO.path}" type="audio/ogg">
-										</audio>	
+										</audio>
+										
 									</div>
-									
 								
 								</div>
 									
@@ -281,95 +334,6 @@
 		</div>
 	</section>
 	<!--================End Product Description Area =================-->
-
-	<!--================ start footer Area  =================-->
-	<footer class="footer-area section_gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3  col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">About Us</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-footer-widget">
-						<h6 class="footer_title">Newsletter</h6>
-						<p>Stay updated with our latest trends</p>
-						<div id="mc_embed_signup">
-							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="subscribe_form relative">
-								<div class="input-group d-flex flex-row">
-									<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '"
-									 required="" type="email">
-									<button class="btn sub-btn">
-										<span class="lnr lnr-arrow-right"></span>
-									</button>
-								</div>
-								<div class="mt-10 info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="single-footer-widget instafeed">
-						<h6 class="footer_title">Instagram Feed</h6>
-						<ul class="list instafeed d-flex flex-wrap">
-							<li>
-								<img src="img/instagram/Image-01.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-02.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-03.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-04.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-05.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-06.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-07.jpg" alt="">
-							</li>
-							<li>
-								<img src="img/instagram/Image-08.jpg" alt="">
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
-					<div class="single-footer-widget f_social_wd">
-						<h6 class="footer_title">Follow Us</h6>
-						<p>Let us be social</p>
-						<div class="f_social">
-							<a href="#">
-								<i class="fa fa-facebook"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-twitter"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-dribbble"></i>
-							</a>
-							<a href="#">
-								<i class="fa fa-behance"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</footer>
-	<!--================ End footer Area  =================-->
-
-
-
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -36,6 +36,36 @@ function get_brani_utente() {
 	});
 }
 
+function get_all_brani() {
+	$.ajax({
+		type: "GET",
+		url: "brano",
+		contentType: "json",
+		data: {"whatsend": "GetBrani"},
+		success: function(result, status, xhr) {
+			console.log("Entered: ", status);
+			$('#songs-table').find("tr:gt(0)").remove();
+			brani = JSON.parse((xhr.responseText.trim().split('\n'))[0]);
+			for (var i = 0; i < brani.length; i++) {
+				var row = "<tr>"
+					row += "<td><a href='brano?whatsend=GetDettaglioBrano&idBrano=" + brani[i].idBrano + "'>" + brani[i].titolo + "</td>"
+					row += "<td>" + brani[i].date_ins + "</td>"
+					
+					if (brani[i].disponibile == true)
+						row += "<td><a onclick='changeDisponibilityAll(" + brani[i].idBrano + ")' class='btn primary-btn fa fa-ban glyphicon'></td>"
+					else
+						row += "<td><a onclick='changeDisponibilityAll(" + brani[i].idBrano + ")' class='btn primary-btn fa fa-check glyphicon'></td>"
+						
+					row += "</tr>"
+				$('#songs-table tr:last').after(row);
+			}
+		},
+		error: function(error) {
+			console.log("Error: ", error);
+		}
+	});
+}
+
 function get_brani_acquistati() {
 	$.get("brano", {"whatsend": "GetAcquisti"}, function(result, status, xhr) {
 		downloads = JSON.parse(xhr.responseText.trim());
@@ -49,6 +79,12 @@ function get_brani_acquistati() {
 			$('#acquisto-table tr:last').after(row);
 		}
 	}, "json");
+}
+function changeDisponibilityAll(idBrano) {
+	$.post("brano", {"whatsend": "ChangeDisponibilityAll", "idBrano": idBrano}, function(result, status, xhr) {
+		console.log("Entered ", status);
+		get_all_brani();
+	});
 }
 
 function changeDisponibility(idBrano) {

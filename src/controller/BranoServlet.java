@@ -53,7 +53,21 @@ public class BranoServlet extends HttpServlet {
 				e.printStackTrace();
 				AppUtils.Forward(request, response, this, "/error.jsp");
 			}
+		} else if(whatsend.equalsIgnoreCase("GetBrani")){
+			try {
+				BranoDAO dao = new BranoDAO();
+				List<Bean> result = dao.GetAll();
+
+				AppUtils.storeData(request.getSession(), "ALL_BRANI", result);
+				String brani_JSON = AppUtils.fromObjectToJson(result);
+				response.getWriter().append(brani_JSON + '\n');
+				response.getWriter().append("200");
+			} catch (Exception e) {
+				e.printStackTrace();
+				AppUtils.Forward(request, response, this, "/error.jsp");
+			}
 		} else if (whatsend.equalsIgnoreCase("GetDettaglioBrano")) {
+		
 			try {
 				Brano branoToFind = new Brano();
 				branoToFind.setIdBrano(Integer.parseInt(request.getParameter("idBrano")));
@@ -106,7 +120,23 @@ public class BranoServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
+		} else if(whatsend != null && whatsend.equalsIgnoreCase("ChangeDisponibilityAll")){
+			try {
+				List<Bean> brani = (List<Bean>) request.getSession().getAttribute("ALL_BRANI");
+				for (int i = 0; i < brani.size(); i++)
+					if (((Brano) brani.get(i)).getIdBrano() == Integer
+							.parseInt(request.getParameter("idBrano"))) {
+						((Brano) brani.get(i)).setDisponibile(!((Brano) brani.get(i)).isDisponibile());
+						BranoDAO dao = new BranoDAO();
+						dao.Update(brani.get(i));
+						break;
+					}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+			else {
+		
 
 			try {
 				IndirizzoFatturazioneDAO indirizzoDao = new IndirizzoFatturazioneDAO();

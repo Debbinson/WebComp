@@ -22,6 +22,8 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Recupero indirizzo di fatturazione associato
+		
+		
 		Utente utente = (Utente) request.getSession().getAttribute("LOGINED_USER");
 		if (request.getSession().getAttribute("INDIRIZZO_FATTURAZIONE") == null
 				|| request.getParameter("refresh_indirizzo_fatturazione") != null) {

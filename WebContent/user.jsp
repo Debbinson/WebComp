@@ -53,20 +53,75 @@
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social</a>
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a class="nav-link" href="#">Facebook</a>
+													<a class="nav-link" href="https://it-it.facebook.com/">Facebook</a>
 													<li class="nav-item">
-														<a class="nav-link" href="#">Instagram</a>
+														<a class="nav-link" href="https://www.instagram.com/?hl=it">Instagram</a>
 														<li class="nav-item">
-															<a class="nav-link" href="#">Twitter</a>
+															<a class="nav-link" href="https://twitter.com/login?lang=it">Twitter</a>
 														</li>
 											</ul>
 											</li>
 											<li class="nav-item">
-												<a class="nav-link" href="#">About us</a>
+												<a class="nav-link" data-toggle="modal" data-target="#about-us">About us</a>
 											</li>
 								</ul>
 							</div>
 
+
+							<div class="modal fade" id="about-us" role="dialog">
+							    <div class="modal-dialog">		
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							      <h2 align = "center">About us!</h2>
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							        </div>
+							        <div class="modal-body">
+							          <div class="row">
+
+							
+							<!-- Giovanni Profile -->
+									<div class="col-lg-6">
+										<a href="https://github.com/gioiannu">
+											<div class="blog_right_sidebar">
+												<aside class="single_sidebar_widget author_widget">
+													<img class = "author_img rounded-circle" src="./img/giovanni.jpg" alt="">
+												</aside>
+													<h3 align="center">Giovanni Iannuzzi</h3>
+											</div>
+										</a>
+										<h5 class="product-name" align="center">Developer</h5>
+									</div>
+									<!-- Giovanni Profile -->
+									
+									<!-- Alessandro Profile -->
+									<div class="col-lg-6">
+										<a href="https://github.com/Debbinson">
+											<div class="blog_right_sidebar">
+												<aside class="single_sidebar_widget author_widget">
+													<img class="author_img rounded-circle" src="./img/alessandro.jpg" alt="">
+												</aside>
+													<h3 align="center">Alessandro De Bartolo</h3>
+											</div>
+										</a>
+										<h5 class="product-name" align="center">Developer</h5>
+									</div>
+									<!-- Alessandro Profile -->
+							
+									</div>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+							  </div>
+							
+							
+							
+							
 							<div class="col-lg-5">
 								<ul class="nav navbar-nav navbar-right right_nav pull-right">
 									<c:if test="${LOGINED_USER==null}">
@@ -135,17 +190,17 @@
                             <h4>${LOGINED_USER.username}</h4>
                             <p>User/Artist</p>
                             <div class="social_icon">
-                                <a href="#">
+                                <a href="https://it-it.facebook.com/">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a href="#">
+                                <a href="https://twitter.com/login?lang=it">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="#">
+                                <a href="https://github.com/">
                                     <i class="fa fa-github"></i>
                                 </a>
-                                <a href="#">
-                                    <i class="fa fa-behance"></i>
+                                <a href="https://www.instagram.com/?hl=it">
+                                    <i class="fa fa-instagram"></i>
                                 </a>
                             </div>
                             <p>Every registered user can download and upload songs, try to make your own song

@@ -45,7 +45,7 @@ public class CommentiServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				RequestDispatcher  dispatcher=this.getServletContext().getRequestDispatcher("/error.jsp");
+				RequestDispatcher  dispatcher=this.getServletContext().getRequestDispatcher("/error");
 				dispatcher.forward(request, response);
 				return;
 			}

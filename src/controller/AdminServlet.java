@@ -32,6 +32,9 @@ public class AdminServlet extends HttpServlet {
 				AppUtils.Forward(request, response, this, "/error.jsp");
 			}
 		}
+		
+		request.getSession().setAttribute("ADMIN", utente);
+
 
 		AppUtils.Forward(request, response, this, "/admin.jsp");
 	}
