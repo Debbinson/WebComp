@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dropbox.core.DbxException;
+
 import model.Bean;
 import model.Brano;
 import model.Categoria;
@@ -20,6 +22,7 @@ import model.Valutazione;
 import persistence.BranoDAO;
 import persistence.ValutazioneDAO;
 import util.AppUtils;
+import util.UploadFile;
 
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +30,15 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		if(request.getSession().getAttribute("DROPBOX")!="DOWNLOAD_EFFETTUATO") {
+			request.getSession().setAttribute("DROPBOX", "DOWNLOAD_EFFETTUATO");
+			UploadFile up= new UploadFile();
+			try {
+				up.riempiCartella();
+			} catch (DbxException e) {
+				e.printStackTrace();
+			}
+		}
 		String whatsend = request.getParameter("whatsend");
 		if (whatsend != null && whatsend.equalsIgnoreCase("GetBraniByCategoria")) {
 			try {

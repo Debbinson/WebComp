@@ -32,17 +32,13 @@ public class DBConnectorFactory {
 
 		try {
 			Class.forName(DB_DRIVER);
-			System.out.println("MySQL Connector Driver loaded");
 		} catch (ClassNotFoundException e) {
-			System.out.println("ERROR :: MySQL Connector not found");
 			throw new SQLException(e.getMessage());
 		}
 
 		try {
 			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-			System.out.println("SQL Connection to database established !");
 		} catch (SQLException e) {
-			System.out.println("Connection to commerce_and_music database failed");
 			throw new SQLException(e.getErrorCode() + " :: " + e.getMessage());
 		}
 

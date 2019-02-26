@@ -225,7 +225,7 @@
 										</c:forEach>
 										
 										<c:if test="${download==true}">
-											<a href="SONG/${brano.path}" download><i class="fa fa-arrow-down"></i></a>
+											<a href="/WebComp/WebContent/SONG/${brano.path}" download><i class="fa fa-arrow-down"></i></a>
 										</c:if>
 										<c:if test="${download==false}">
 											<button class="genric-btn danger-border circle" onclick="addToCart(${brano.idBrano})"><i class="fa fa-shopping-cart"></i></button>

@@ -200,6 +200,12 @@ public class UtenteDAO implements DAO {
 		} catch (Exception err) {
 			throw new SQLException(err.getMessage());
 		} finally {
+			try {
+				conn.close();
+			}
+			catch(SQLException sqle){
+				sqle.printStackTrace();
+			}
 			if (stmt != null)
 				stmt.close();
 			if (conn != null)

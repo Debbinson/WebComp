@@ -46,6 +46,12 @@ public class IndirizzoFatturazioneDAO implements DAO {
 			System.out.println("GENERIC ERROR: Transaction is being rolled back");
 			throw new SQLException(err.getMessage());
 		} finally {
+			try {
+				conn.close();
+			}
+			catch(SQLException sqle){
+				sqle.printStackTrace();
+			}
 			if (stmt != null)
 				stmt.close();
 			if (conn != null)
@@ -92,6 +98,12 @@ public class IndirizzoFatturazioneDAO implements DAO {
 			System.out.println("GENERIC ERROR: Transaction is being rolled back");
 			throw new SQLException(err.getMessage());
 		} finally {
+			try {
+				conn.close();
+			}
+			catch(SQLException sqle){
+				sqle.printStackTrace();
+			}
 			if (stmt != null)
 				stmt.close();
 			if (conn != null)
@@ -156,6 +168,12 @@ public class IndirizzoFatturazioneDAO implements DAO {
 		} catch (Exception err) {
 			throw new SQLException(err.getMessage());
 		} finally {
+			try {
+				conn.close();
+			}
+			catch(SQLException sqle){
+				sqle.printStackTrace();
+			}
 			if (stmt != null)
 				stmt.close();
 			if (conn != null)

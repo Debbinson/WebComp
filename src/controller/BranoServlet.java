@@ -28,6 +28,7 @@ import persistence.BranoDAO;
 import persistence.CategoriaDAO;
 import persistence.IndirizzoFatturazioneDAO;
 import util.AppUtils;
+import util.UploadFile;
 
 public class BranoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -156,6 +157,7 @@ public class BranoServlet extends HttpServlet {
 				Iterator<FileItem> i = fileItems.iterator();
 
 				response.getWriter().write("");
+				UploadFile up = new UploadFile();
 				while (i.hasNext()) {
 					FileItem fi = (FileItem) i.next();
 					if (!fi.isFormField()) {
@@ -164,6 +166,7 @@ public class BranoServlet extends HttpServlet {
 						file = new File(AppUtils.getSongUploadPath(this) + filename + ext);
 						response.getWriter().append(filename + ext + '\n');
 						fi.write(file);
+						up.aggiungiSong(AppUtils.getSongUploadPath(this)+"\\"+filename+ext,filename+ext);
 					}
 				}
 			} catch (Exception e) {
